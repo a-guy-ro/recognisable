@@ -7,20 +7,12 @@ let leftEye;
 let rightEye;
 let captureWidth = 640;
 let captureHeight = 480;
-    let options = {
-  video: {
-     
-      facingMode: {
-       exact: "user"
-     }
-  }
-};
 
 
 
 p.setup = function () {
     let eyeCanvas = p.createCanvas(500, 150);
-    video = p.createCapture(p.VIDEO||options);
+    video = p.createCapture(p.VIDEO);
     video.size(captureWidth,captureHeight);
     poseNet = ml5.poseNet(video, p.modelReady);
     poseNet.on("pose", function(results) {
