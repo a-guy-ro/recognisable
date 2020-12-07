@@ -20,7 +20,7 @@ let captureHeight = 480;
 
 p.setup = function () {
     let eyeCanvas = p.createCanvas(500, 150);
-    video = p.createCapture(options);
+    video = p.createCapture(p.VIDEO||options);
     video.size(captureWidth,captureHeight);
     poseNet = ml5.poseNet(video, p.modelReady);
     poseNet.on("pose", function(results) {
